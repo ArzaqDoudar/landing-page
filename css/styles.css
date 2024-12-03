@@ -89,9 +89,12 @@ section {
     transition: ease 0.3s all;
 }
 
-.menu__link__Active {
-    border: 2px solid saddlebrown;
-    border-radius: 8px;
+.active {
+    background: #333;
+    color: #fff !important;
+    /* transition: ease 0.3s all; */
+    /* border: 2px solid saddlebrown;
+    border-radius: 8px; */
 }
 
 /* Header Styles */

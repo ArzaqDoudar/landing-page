@@ -1,5 +1,7 @@
 # Landing Page Project
 
+The landing page is a JS project to learn how can we work with DOM and how to change the structure of HTML using JS.
+
 ## Instructions
 
 The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
