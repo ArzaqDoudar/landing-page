@@ -53,10 +53,7 @@ const createUlElement = (unorderedList) => {
             const list_item_link = document.createElement('a');
             list_item_link.setAttribute('class', "menu__link");
             list_item_link.setAttribute('data', `${item.id}`);
-            list_item_link.setAttribute('href', `section`);
             list_item_link.setAttribute('target', "_blank");
-            list_item_link.onclick = () => { scrollOnClick(item.id) };
-
             list_item_link.innerText = item.data;
             list_item.appendChild(list_item_link)
             navbar_list.appendChild(list_item)
@@ -107,26 +104,11 @@ const removeAnchorsDefaultAction = () => {
 
 const scrollOnClick = (id) => {
     const element = document.getElementById(id);
-    // element.scrollIntoView();
     if (element) {
-        element.scrollIntoView();
+        element.scrollIntoView({ behavior: "smooth" });
     } else {
         console.log(`Element with id "${id}" not found.`);
     }
-    // anchors.forEach(anchor => {
-    //     const data = anchor.getAttribute('data')
-
-    //     for (let index = 0; index < sections.length; index++) {
-    //         const box = sections[index].getBoundingClientRect();
-    //         if (sections[index].id == data) {
-    //             anchor.addEventListener('click', (event) => {
-    //                 const element = document.getElementById(anchor.id);
-    //                 element.scrollIntoView();
-    //             })
-    //         }
-    //     }
-
-    // });
 }
 
 
@@ -172,7 +154,11 @@ scrollOnClick()
 // Set sections as active
 
 document.addEventListener('scroll', () => makeActive())
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     scrollOnClick('section1');
-// });
+document.addEventListener('click', (event) => {
+    const element = event.target
+    if (element.classList[0] == 'menu__link') {
+        scrollOnClick(element.getAttribute('data'))
+    } else {
+        console.log('not anchor');
+    }
+})
